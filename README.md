@@ -1,1 +1,0 @@
-# student-management-application-1
