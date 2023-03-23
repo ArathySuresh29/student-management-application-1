@@ -10,4 +10,6 @@ public interface StudentEntryService {
     Student[] getAll();
 
     Student get(String id);
+
+    void sorting(int choiceForSorting);
 }

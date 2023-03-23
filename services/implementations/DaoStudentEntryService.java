@@ -1,6 +1,7 @@
 package services.implementations;
 
 import data.daos.StudentDao;
+import data.daos.exceptions.NoSuchStudentExist;
 import data.daos.implementations.ArrayListStudentDao;
 import logic.models.Student;
 import services.StudentEntryService;
@@ -29,6 +30,11 @@ public class DaoStudentEntryService implements StudentEntryService {
 
     @Override
     public Student get(String id) {
-        return studentDao.get(id);
+        return studentDao.get(id) ;
+    }
+
+    @Override
+    public void sorting(int choiceForSorting) {
+        studentDao.sorting(choiceForSorting);
     }
 }

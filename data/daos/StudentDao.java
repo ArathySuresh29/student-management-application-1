@@ -10,4 +10,6 @@ public interface StudentDao {
     Student[] getAll();
 
     Student get(String id);
+
+    void sorting(int choiceForSorting);
 }
