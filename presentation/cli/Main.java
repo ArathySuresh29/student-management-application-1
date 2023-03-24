@@ -20,7 +20,7 @@ public class Main {
         StudentService studentService = new StudentServiceImpl(new ArrayListStudentDao());
         Menu menu = new Menu();
 
-        while (choice != 5) {
+        while (choice != EXIT) {
             System.out.println();
             menu.display();
             System.out.println("Enter your choice:");
