@@ -55,11 +55,7 @@ public class Main {
                 case REMOVE_STUDENT:
                     System.out.println("Enter Student ID To Remove:");
                     String idToRemove = new Scanner(System.in).nextLine();
-                    try {
-                        studentEntryService.remove(idToRemove);
-                    } catch (Exception e) {
-                        System.err.println(e.getMessage());
-                    }
+                    studentEntryService.remove(idToRemove);
                     break;
                 case EXIT:
                     System.out.println("Exiting...");
