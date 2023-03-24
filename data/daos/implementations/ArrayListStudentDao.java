@@ -35,8 +35,7 @@ public class ArrayListStudentDao implements StudentDao {
     public Student get(String id) {
         return students.stream()
                 .filter(s -> s.getId().equals(id))
-                .findFirst()
-                .orElseThrow(() -> new NoSuchStudentExist(id));
+                .findFirst().orElseThrow(() -> new NoSuchStudentExist(id));
     }
 
 

@@ -4,6 +4,8 @@ import data.daos.implementations.ArrayListStudentDao;
 import logic.models.Student;
 import services.StudentService;
 import services.implementations.StudentServiceImpl;
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -47,10 +49,8 @@ public class Main {
                     break;
                 case SHOW_STUDENTS:
                     System.out.println("Id, First Name, Last Name");
-                    for (Student s : studentService.getAll()) {
-
-                        System.out.println(s.getId() + ", " + s.getFirstName() + ", " + s.getLastName());
-                    }
+                    Student[] students = studentService.getAll();
+                    Arrays.stream(students).forEach(s -> System.out.println(s.getId() + ", " + s.getFirstName() + ", " + s.getLastName()));
                     break;
                 case REMOVE_STUDENT:
                     System.out.println("Enter Student ID To Remove:");
