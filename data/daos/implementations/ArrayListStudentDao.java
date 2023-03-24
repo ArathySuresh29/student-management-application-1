@@ -30,12 +30,8 @@ public class ArrayListStudentDao implements StudentDao {
 
     @Override
     public Student get(String id) {
-        for (Student s : students) {
-            if (s.getId().equals(id)) {
-                return s;
-            }
-        }
-        throw new NoSuchStudentExist(id);
-    }
+        return students.stream().filter(s -> s.getId().equals(id)).findFirst().orElseThrow(() -> new NoSuchStudentExist(id));
+    } 
+
 
 }
