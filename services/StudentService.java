@@ -2,7 +2,7 @@ package services;
 
 import logic.models.Student;
 
-public interface StudentEntryService {
+public interface StudentService {
     void add(Student student);
 
     void remove(String idToRemove);

@@ -1,14 +1,13 @@
 package services.implementations;
 
 import data.daos.StudentDao;
-import data.daos.implementations.ArrayListStudentDao;
 import logic.models.Student;
-import services.StudentEntryService;
+import services.StudentService;
 
-public class DaoStudentEntryService implements StudentEntryService {
+public class StudentServiceImpl implements StudentService {
     private final StudentDao studentDao;
 
-    public DaoStudentEntryService(StudentDao studentDao) {
+    public StudentServiceImpl(StudentDao studentDao) {
         this.studentDao = studentDao;
     }
 

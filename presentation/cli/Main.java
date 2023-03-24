@@ -2,8 +2,8 @@ package presentation.cli;
 
 import data.daos.implementations.ArrayListStudentDao;
 import logic.models.Student;
-import services.StudentEntryService;
-import services.implementations.DaoStudentEntryService;
+import services.StudentService;
+import services.implementations.StudentServiceImpl;
 import java.util.Scanner;
 
 public class Main {
@@ -17,7 +17,7 @@ public class Main {
 
     public static void main(String[] args) {
         int choice = NO_MENU_ITEM;
-        StudentEntryService studentEntryService = new DaoStudentEntryService(new ArrayListStudentDao());
+        StudentService studentService = new StudentServiceImpl(new ArrayListStudentDao());
         Menu menu = new Menu();
 
         while (choice != 5) {
@@ -34,12 +34,12 @@ public class Main {
                     student.setFirstName(new Scanner(System.in).nextLine());
                     System.out.println("Enter Student Last Name:");
                     student.setLastName(new Scanner(System.in).nextLine());
-                    studentEntryService.add(student);
+                    studentService.add(student);
                     break;
                 case UPDATE_STUDENT:
                     System.out.println("Enter Student ID:");
                     String id = new Scanner(System.in).nextLine();
-                    Student oneStudent = studentEntryService.get(id);
+                    Student oneStudent = studentService.get(id);
                     System.out.println("Enter Student First Name:");
                     oneStudent.setFirstName(new Scanner(System.in).nextLine());
                     System.out.println("Enter Student Last Name:");
@@ -47,7 +47,7 @@ public class Main {
                     break;
                 case SHOW_STUDENTS:
                     System.out.println("Id, First Name, Last Name");
-                    for (Student s : studentEntryService.getAll()) {
+                    for (Student s : studentService.getAll()) {
 
                         System.out.println(s.getId() + ", " + s.getFirstName() + ", " + s.getLastName());
                     }
@@ -55,7 +55,7 @@ public class Main {
                 case REMOVE_STUDENT:
                     System.out.println("Enter Student ID To Remove:");
                     String idToRemove = new Scanner(System.in).nextLine();
-                    studentEntryService.remove(idToRemove);
+                    studentService.remove(idToRemove);
                     break;
                 case EXIT:
                     System.out.println("Exiting...");
