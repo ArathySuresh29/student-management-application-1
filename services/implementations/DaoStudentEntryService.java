@@ -18,8 +18,8 @@ public class DaoStudentEntryService implements StudentEntryService {
     }
 
     @Override
-    public void remove(Student student) {
-        studentDao.remove(student);
+    public void remove(String idToRemove) {
+        studentDao.remove(idToRemove);
     }
 
     @Override

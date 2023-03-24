@@ -19,8 +19,8 @@ public class ArrayListStudentDao implements StudentDao {
     }
 
     @Override
-    public void remove(Student student) {
-        students.remove(student);
+    public void remove(String idToRemove) {
+        students.remove(students.get(students.indexOf(get(idToRemove))));
     }
 
     @Override

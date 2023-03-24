@@ -6,7 +6,7 @@ public class Menu {
         System.out.println("1. Add Student");
         System.out.println("2. Update Student");
         System.out.println("3. Show Students");
-        System.out.println("4. Delete Student");
+        System.out.println("4. Remove Student");
         System.out.println("5. Exit");
     }
 

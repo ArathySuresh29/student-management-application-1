@@ -12,7 +12,7 @@ public class Main {
     public static final int ADD_STUDENT = 1;
     public static final int UPDATE_STUDENT = 2;
     public static final int SHOW_STUDENTS = 3;
-    public static final int DELETE_STUDENT = 4;
+    public static final int REMOVE_STUDENT = 4;
     public static final int EXIT = 5;
 
     public static void main(String[] args) {
@@ -52,11 +52,14 @@ public class Main {
                         System.out.println(s.getId() + ", " + s.getFirstName() + ", " + s.getLastName());
                     }
                     break;
-                case DELETE_STUDENT:
-                    System.out.println("Enter Student ID:");
-                    String idToDelete = new Scanner(System.in).nextLine();
-                    Student studentToDelete = studentEntryService.get(idToDelete);
-                    studentEntryService.remove(studentToDelete);
+                case REMOVE_STUDENT:
+                    System.out.println("Enter Student ID To Remove:");
+                    String idToRemove = new Scanner(System.in).nextLine();
+                    try {
+                        studentEntryService.remove(idToRemove);
+                    } catch (Exception e) {
+                        System.err.println(e.getMessage());
+                    }
                     break;
                 case EXIT:
                     System.out.println("Exiting...");
