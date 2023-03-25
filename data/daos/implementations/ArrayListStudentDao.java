@@ -5,6 +5,10 @@ import data.daos.exceptions.NoSuchStudentExist;
 import logic.models.Student;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.Arrays.stream;
 
 public class ArrayListStudentDao implements StudentDao {
     private final ArrayList<Student> students;
@@ -20,22 +24,26 @@ public class ArrayListStudentDao implements StudentDao {
 
     @Override
     public void remove(String idToRemove) {
-        students.remove(students.stream()
+        Student studentToRemove=students.stream()
                 .filter(s -> s.getId().equals(idToRemove))
                 .findFirst().
-                orElseThrow(() -> new NoSuchStudentExist(idToRemove)));
+                orElseThrow(() -> new NoSuchStudentExist(idToRemove));
+       students.remove(studentToRemove);
+
     }
 
     @Override
-    public Student[] getAll() {
-        return students.toArray(new Student[students.size()]);
-    }
+    public List<Student> getAll() {
+        return students.stream()
+                .collect(Collectors.toList());
 
+    }
     @Override
     public Student get(String id) {
         return students.stream()
                 .filter(s -> s.getId().equals(id))
-                .findFirst().orElseThrow(() -> new NoSuchStudentExist(id));
+                .findFirst()
+                .orElseThrow(() -> new NoSuchStudentExist(id));
     }
 
 

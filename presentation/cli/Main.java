@@ -6,6 +6,7 @@ import services.StudentService;
 import services.implementations.StudentServiceImpl;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -49,8 +50,9 @@ public class Main {
                     break;
                 case SHOW_STUDENTS:
                     System.out.println("Id, First Name, Last Name");
-                    Student[] students = studentService.getAll();
-                    Arrays.stream(students).forEach(s -> System.out.println(s.getId() + ", " + s.getFirstName() + ", " + s.getLastName()));
+                    List<Student> students = studentService.getAll();
+                    students.stream()
+                            .forEach(getStudent -> System.out.println(getStudent.getId() + ", " + getStudent.getFirstName() + ", " + getStudent.getLastName()));
                     break;
                 case REMOVE_STUDENT:
                     System.out.println("Enter Student ID To Remove:");

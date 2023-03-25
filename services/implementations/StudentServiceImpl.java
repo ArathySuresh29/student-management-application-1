@@ -4,6 +4,8 @@ import data.daos.StudentDao;
 import logic.models.Student;
 import services.StudentService;
 
+import java.util.List;
+
 public class StudentServiceImpl implements StudentService {
     private final StudentDao studentDao;
 
@@ -22,7 +24,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student[] getAll() {
+    public List<Student> getAll() {
         return studentDao.getAll();
     }
 
