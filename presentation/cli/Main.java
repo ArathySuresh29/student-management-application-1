@@ -51,8 +51,7 @@ public class Main {
                 case SHOW_STUDENTS:
                     System.out.println("Id, First Name, Last Name");
                     List<Student> students = studentService.getAll();
-                    students.stream()
-                            .forEach(getStudent -> System.out.println(getStudent.getId() + ", " + getStudent.getFirstName() + ", " + getStudent.getLastName()));
+                    students.stream().forEach(getStudent -> System.out.println(getStudent.getId() + ", " + getStudent.getFirstName() + ", " + getStudent.getLastName()));
                     break;
                 case REMOVE_STUDENT:
                     System.out.println("Enter Student ID To Remove:");
