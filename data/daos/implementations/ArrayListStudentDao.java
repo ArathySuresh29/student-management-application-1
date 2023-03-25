@@ -29,10 +29,6 @@ public class ArrayListStudentDao implements StudentDao {
                 .findFirst().
                 orElseThrow(() -> new NoSuchStudentExist(idToRemove));
        students.remove(studentToRemove);
-<<<<<<< HEAD
-
-=======
->>>>>>> 53075d9ce1f8e0ca52d5efb659aafacd4bcecc02
     }
 
     @Override
