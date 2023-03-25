@@ -20,11 +20,11 @@ public class ArrayListStudentDao implements StudentDao {
 
     @Override
     public void remove(String idToRemove) {
-        studentToRemove=idToRemove;
-        students.remove(students.stream()
-                .filter(s -> s.getId().equals(studentToRemove))
+        Student studentToRemove=students.stream()
+                .filter(s -> s.getId().equals(idToRemove))
                 .findFirst().
-                orElseThrow(() -> new NoSuchStudentExist(studentToRemove)));
+                orElseThrow(() -> new NoSuchStudentExist(idToRemove));
+       students.remove(studentToRemove);
     }
 
     @Override
